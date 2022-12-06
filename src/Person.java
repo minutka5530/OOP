@@ -12,7 +12,7 @@ public class Person {
         }
         this.name = name;
         if(town==null || town.isEmpty()){
-            town = "НЕ указал";
+            town = "НЕ указа";
         }
 
         this.town = town;

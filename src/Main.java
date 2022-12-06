@@ -17,7 +17,7 @@ public class Main {
         System.out.println();
 
 
-        Car lada = new Car("Lada","Granta",1.5, "Желтый", 2015, "Россия");
+        Car lada = new Car("Lad","Granta",1.5, "Желтый", 2015, "Россия");
         Car audi = new Car("Audi","A8 50 L TDI quattro",3.0, "Черный",
                 2020, "Германия");
         Car bmw = new Car("BMW","Z8",3.0, "Черный", 2021, "Германия");

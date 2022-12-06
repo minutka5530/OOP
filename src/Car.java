@@ -30,7 +30,7 @@ public class Car {
 
     @Override
     public String toString() {
-        return brand + " " + mode + " Сборка в " + country + " Цвет - " + color + " Объем двигателя - " + engineVolume +
+        return brand + " " + mode + " Сбор  " + country + " Цвет - " + color + " Объем двигателя - " + engineVolume +
                 " Год выпуска - " + year + "";
     }
 }
