@@ -1,24 +1,22 @@
 public class Person {
     private int yearOfBirth;
-    final private String name;
+    private String name;
     private String town;
-    final private String jobTitle;
+    private String jobTitle;
 
-
-
-    Person(int yearOfBirth, String name, String town, String jobTitle) {
-        if(name==null || name.isEmpty()){
-            name = "НЕ указал";
-        }
-        this.name = name;
-        setTown(town);
+    public Person(int yearOfBirth, String name, String town, String jobTitle) {
         setYearOfBirth(yearOfBirth);
-
-        if(jobTitle==null || jobTitle.isEmpty()){
-            jobTitle = "НЕ указал";
+        if (name == null || name.isEmpty() || name.isBlank()) {
+            this.name = "Информация не указана";
+        } else  {
+            this.name = name;
         }
-
-        this.jobTitle = jobTitle;
+        setTown(town);
+        if (jobTitle == null || jobTitle.isEmpty() || jobTitle.isBlank()) {
+            this.jobTitle = "Информация не указана";
+        } else {
+            this.jobTitle = jobTitle;
+        }
 
     }
 
@@ -27,10 +25,10 @@ public class Person {
     }
 
     public void setYearOfBirth(int yearOfBirth) {
-        if (yearOfBirth < 0){
+        if (yearOfBirth < 0) {
             this.yearOfBirth = 0;
         } else {
-            this.yearOfBirth = Math.abs(yearOfBirth);
+            this.yearOfBirth = yearOfBirth;
         }
     }
 
@@ -39,14 +37,16 @@ public class Person {
     }
 
     public void setTown(String town) {
-        if(this.town == null){
-            this.town = "Информация не указрна";
+        if (town == null || town.isEmpty() || town.isBlank()) {
+            this.town = "Информация не указана";
+        } else {
+            this.town = town;
         }
     }
 
     @Override
     public String toString() {
-        return "Привет! Меня зовут " + name + " Я из города " + town + " Я родился в " + yearOfBirth + " году. " +
-                "Я работаю на должности " + jobTitle + " . Будем знакомы!";
+        return "Привет! Меня зовут " + name + " Я из города " + town + " Я родился в " + yearOfBirth +
+                " году. Я работаю на должности - " + jobTitle + " Будем знакомы!";
     }
 }

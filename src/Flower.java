@@ -4,22 +4,22 @@ public class Flower {
     private final double cost;
     private int lifeSpan;
 
-    public Flower(String flowerName, String country, double cost, int lifeSpan) {
-        if (flowerName == null || flowerName.isEmpty()) {
-            flowerName = "Тип цветка не указан";
+    public Flower(String flowerName, String country, double cost) {
+        if (flowerName == null || flowerName.isEmpty() || flowerName.isBlank()) {
+            this.flowerName = "Тип цветка не указан";
+        } else {
+            this.flowerName = flowerName;
         }
-        this.flowerName = flowerName;
-
-        if (country == null || country.isEmpty()) {
-            country = "Россия";
+        if (country == null || country.isEmpty() || country.isBlank()) {
+            this.country = "Россия";
+        } else {
+            this.country = flowerName;
         }
-        this.country = country;
-
-        if (cost < 0) {
-            cost = 1;
+        if (cost <= 0) {
+            this.cost = 1;
+        } else {
+            this.cost = cost;
         }
-        this.cost = cost;
-
         this.lifeSpan = 3;
     }
 
@@ -40,16 +40,17 @@ public class Flower {
     }
 
     public void setLifeSpan(int lifeSpan) {
-        if(lifeSpan>0){
-
+        if (lifeSpan > 0)
             this.lifeSpan = lifeSpan;
-        }
-
     }
 
     @Override
     public String toString() {
-        return "Название - " + getFlowerName() + ", страна происхождения - " + getCountry() + ", стоимость - " + getCost() +
-                ", сроком стояния цветка - " + getLifeSpan();
+        return "Flower{" +
+                "flowerName='" + flowerName + '\'' +
+                ", country='" + country + '\'' +
+                ", cost=" + cost +
+                ", lifeSpan=" + lifeSpan +
+                '}';
     }
 }
