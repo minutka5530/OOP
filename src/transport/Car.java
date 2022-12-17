@@ -2,13 +2,7 @@ package transport;
 
 import java.time.LocalDate;
 
-public class Car {
-    private  String brand;
-    private  String model;
-    private double engineVolume;
-    private String color;
-    private final int productionYear;
-    private final String productionCountry;
+public class Car extends Transport{
     private String gears;
     private final String  body;
     private final String number;
@@ -18,71 +12,36 @@ public class Car {
     private Insurance insurance;
 
 
-
     public Car(String brand,
                String model,
-               double engineVolume,
-               String color,
                int productionYear,
                String productionCountry,
-               String body,
-               String number) {
-        if(brand == null || brand.isEmpty() || brand.isBlank()){
-            brand = "default";
-            this.brand = brand;
-
-            if(model == null || model.isEmpty() || model.isBlank()) {
-                model = "default";
-            }
-            this.model = model;
-            if (engineVolume<=0){
-                engineVolume = 1.5;
-            }
-            setEngineVolume(engineVolume);
-
-            if(color == null || color.isEmpty() || color.isBlank()){
-                color = "белый";
-            }
-        }
-        this.color = color;
-        if (productionYear<=0){
-            productionYear = 2000;
-        }
-        this.productionYear = productionYear;
-
-        if(productionCountry == null || productionCountry.isEmpty() || productionCountry.isBlank()) {
-            productionCountry = "default";
-        }
-        this.productionCountry = productionCountry;
-        if (body == null || body.isEmpty()){
-            body = "Механика";
-        }
-        this.body = body;
-        if (number == null || number.isEmpty()){
-            number = "x000xx000";
-        }
-        this.number = number;
-        setKye(kye);
-        setInsurance(insurance);
-
-    }
-    public Car(String brand,
-               String model,
-               double engineVolume,
                String color,
-               int productionYear,
-               String productionCountry
-               ) {
-        this(
-                brand,
-                model,
-                engineVolume,
-                color,
-                productionYear,
-                productionCountry,
-                null,
-                null
-        );
+               int maxSpeed,
+               String gears,
+               String body,
+               String number,
+               int seats,
+               boolean summerTyres,
+               Kye kye,
+
+               Insurance insurance,
+               String fuel,
+               double fuelPercentage) {
+        super(brand, model, productionYear, productionCountry, color, maxSpeed, fuelPercentage,fuel);
+        this.gears = gears;
+        this.body = body;
+        this.number = number;
+        this.seats = seats;
+        this.summerTyres = summerTyres;
+        this.kye = kye;
+        this.insurance = insurance;
+    }
+    @Override
+    public void refill() {
+        System.out.println("заправлять бензином");
+        setFuelPercentage(100);
+
     }
 
     public Kye getKye() {
@@ -106,48 +65,12 @@ public class Car {
         }
         this.insurance = insurance;
     }
-
-    public String getBrand() {
-        return brand;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public int getProductionYear() {
-        return productionYear;
-    }
-
-    public String getProductionCountry() {
-        return productionCountry;
-    }
-
     public String getBody() {
         return body;
     }
 
     public String getNumber() {
         return number;
-    }
-
-    public double getEngineVolume() {
-        return engineVolume;
-    }
-
-    public void setEngineVolume(double engineVolume) {
-        if (engineVolume<=0){
-            engineVolume = 1.5;
-        }
-        this.engineVolume = engineVolume;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
     }
 
     public String getGears() {
@@ -275,22 +198,4 @@ public class Car {
         }
     }
 
-    @Override
-    public String toString() {
-        return "Car{" +
-                "brand='" + brand + '\'' +
-                ", model='" + model + '\'' +
-                ", engineVolume=" + engineVolume +
-                ", color='" + color + '\'' +
-                ", productionYear=" + productionYear +
-                ", productionCountry='" + productionCountry + '\'' +
-                ", gears='" + gears + '\'' +
-                ", body='" + body + '\'' +
-                ", number='" + number + '\'' +
-                ", seats=" + seats +
-                ", summerTyres=" + summerTyres +
-                ", kye=" + kye +
-                ", insurance=" + insurance +
-                '}';
-    }
 }

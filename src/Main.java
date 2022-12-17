@@ -1,125 +1,89 @@
+import animal.Animal;
+import animal.Herbivore;
+import transport.Bus;
 import transport.Car;
+import transport.Train;
 
 public class Main {
     public static void main(String[] args) {
-        Person maksim = new Person(
-                1988,
-                "Максим",
-                "Минск",
-                "бренд-менеджером");
-        Person ana = new Person(
-                1993,
-                "Аня",
-                "Москва",
-                "методистом образовательных программ");
-        Person kata = new Person(
-                1992,
-                "Катя", "Калиненград",
-                "продакт-менеджером");
-        Person artem = new Person( 1995,
-                "Артем",
-                "Москва",
-                "директором по развитию бизнеса");
-        Person vladimir = new Person(
-                2001,
-                "Владимир",
-                "Казань",
-                null);
-
-        System.out.println(maksim);
-        System.out.println(ana);
-        System.out.println(kata);
-        System.out.println(artem);
-        System.out.println(vladimir);
-        System.out.println();
-
-
-        Car lada = new Car(
-                "Lada",
-                "Granta",
-                1.7,
-                "Желтый",
-                2015,
-                "России");
-        Car audi = new Car(
-                "Audi",
-                "A8 50 L TDI quattro",
-                3.0,
-                "Черный",
-                2020,
-                "Германия");
-        Car bmw = new Car(
-                "BMW",
-                "Z8",
-                1.7,
-                "Черный",
-                2021,
-                "Германии");
-        Car kia = new Car(
-                "KIA",
-                "Sportage",
-                2.4,
-                "красный",
-                2018,
-                "Южная корея");
-        Car hyundai = new Car(
-                "Hyundai",
-                "Avante",
-                1.7,
-                "Желтый",
-                2015,
-                "Южная корея");
-
-        System.out.println(lada);
-
-        Flower roza = new Flower(
-                "роза",
-                "Голандия",
-                35.59
-        );
-        Flower hrizantima = new Flower(
-                "Хризантема",
+        Train lastoxhka = new Train(
+                "Ласточка",
+                "B-901",
+                2011,
+                "Russia",
                 null,
-                35.59
+                301,
+                3500,
+                2,
+                "Белорусский вокзал",
+                "Минск-Пассажирский",
+                11,
+                "Дизель",
+                50
         );
-        hrizantima.setLifeSpan(5);
-        Flower pion = new Flower(
-                "Пион",
-                "Англии",
-                69.9
+        Train lenengrad = new Train(
+                "Ласточка",
+                "D-125",
+                2019,
+                "Russia",
+                null,
+                270,
+                1700,
+                5,
+                "Ленинградский вокзал",
+                "Лененгралско-пасажирский",
+                8,
+                "Дизель",
+                80
         );
-        pion.setLifeSpan(1);
-        Flower gipsofila = new Flower(
-                "Гипсофила",
-                "Турция",
-                19.5
-        );
-        gipsofila.setLifeSpan(10);
-
-        Bouquet bouquet = new Bouquet(
-                new Flower[]{
-                        roza,
-                        roza,
-                        roza,
-
-                        hrizantima,
-                        hrizantima,
-                        hrizantima,
-                        hrizantima,
-                        hrizantima,
-
-                        gipsofila
+        System.out.println(lastoxhka);
+        System.out.println(lenengrad);
 
 
-                }
-        );
+        Bus texi = new Bus(
+                "ласточка",
+                "мощ",
+                2022,
+                "Russia",
+                "white",
+                350,
+                "Бензин",
+                57
+                );
+        Bus pazik = new Bus(
+                "Pazik",
+                "315",
+                2005,
+                "Russia",
+                "Black",
+                100,
+                "Дизель",
+                55
 
-        bouquet.printInfo();
+                );
+        Bus kia = new Bus(
+                "Kia",
+                "Pion",
+                2021,
+                "Корея",
+                "blue",
+                120,
+                "бензин",
+                50
+                );
+        System.out.println(texi);
+        System.out.println(pazik);
+        System.out.println(kia);
 
 
 
-
-
+        Animal gazelle = new Herbivore("Газель", 2, "земля", 60, "Трава" );
+        System.out.println(gazelle);
 
     }
+
+
+
+
+
 }
