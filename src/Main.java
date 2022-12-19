@@ -1,89 +1,52 @@
 import animal.Animal;
 import animal.Herbivore;
-import transport.Bus;
-import transport.Car;
-import transport.Train;
+import transport.*;
+
+import java.util.Random;
+
 
 public class Main {
+    private final static Random RANDOM = new Random();
     public static void main(String[] args) {
-        Train lastoxhka = new Train(
-                "Ласточка",
-                "B-901",
-                2011,
-                "Russia",
-                null,
-                301,
-                3500,
-                2,
-                "Белорусский вокзал",
-                "Минск-Пассажирский",
-                11,
-                "Дизель",
-                50
-        );
-        Train lenengrad = new Train(
-                "Ласточка",
-                "D-125",
-                2019,
-                "Russia",
-                null,
-                270,
-                1700,
-                5,
-                "Ленинградский вокзал",
-                "Лененгралско-пасажирский",
-                8,
-                "Дизель",
-                80
-        );
-        System.out.println(lastoxhka);
-        System.out.println(lenengrad);
+        int counter = 1;
+        Car car1 = generateCar(counter++);
+        Car car2 = generateCar(counter++);
+        Car car3 = generateCar(counter++);
+        Car car4 = generateCar(counter++);
 
+        Bus bus1 = generateBus(counter++);
+        Bus bus2 = generateBus(counter++);
+        Bus bus3 = generateBus(counter++);
+        Bus bus4 = generateBus(counter++);
 
-        Bus texi = new Bus(
-                "ласточка",
-                "мощ",
-                2022,
-                "Russia",
-                "white",
-                350,
-                "Бензин",
-                57
-                );
-        Bus pazik = new Bus(
-                "Pazik",
-                "315",
-                2005,
-                "Russia",
-                "Black",
-                100,
-                "Дизель",
-                55
+        Truck truck1 = generateTruck(counter++);
+        Truck truck2 = generateTruck(counter++);
+        Truck truck3 = generateTruck(counter++);
+        Truck truck4 = generateTruck(counter++);
 
-                );
-        Bus kia = new Bus(
-                "Kia",
-                "Pion",
-                2021,
-                "Корея",
-                "blue",
-                120,
-                "бензин",
-                50
-                );
-        System.out.println(texi);
-        System.out.println(pazik);
-        System.out.println(kia);
+        truck2.start();
+        truck2.stop();
+        DriverB maksim = new DriverB("Maks", true,6);
+        DriverC petr = new DriverC("petr", true, 10);
+        DriverD kiril = new DriverD("kiril", true, 5);
+
+        maksim.startMove(car1);
+        maksim.stopMove(car1);
+        maksim.refill(car1);
+        maksim.printInfo(car1);
 
 
 
-        Animal gazelle = new Herbivore("Газель", 2, "земля", 60, "Трава" );
-        System.out.println(gazelle);
 
     }
-
-
-
-
+    public static Car generateCar(int number){
+        return new Car("марка #" + number, "модель" + number, 1.6);
+    }
+    public static Bus generateBus(int number){
+        return new Bus("марка #" + number,"модель#" + number, 2.5);
+    }
+    public static Truck generateTruck(int number){
+        return new Truck("марка#" + number,"модель#" + number, 1.6);
+    }
 
 }

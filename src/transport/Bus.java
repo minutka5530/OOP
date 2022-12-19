@@ -1,21 +1,37 @@
 package transport;
 
-public class Bus extends Transport {
+public class Bus extends Transport implements Competing {
 
 
-    public Bus(String brand,
-               String model,
-               int productionYear,
-               String productionCountry,
-               String color,
-               int maxSpeed,
-               String fuel,
-               double fuelPercentage) {
-        super(brand, model, productionYear, productionCountry, color, maxSpeed, fuelPercentage,fuel);
+    public Bus(String brand, String model, double engineVolume) {
+        super(brand, model, engineVolume);
     }
+
     @Override
-    public void refill() {
-        System.out.println("автобус запровляеться дизелем " + getFuel());
-        setFuelPercentage(100);
+    public void start() {
+        System.out.println("Автобус " + getBrand() + " "+ getModel() + " начал движения");
+
+    }
+
+    @Override
+    public void stop() {
+        System.out.println("Автобус " + getBrand() + " "+ getModel() + " закончил движения");
+
+    }
+
+    @Override
+    public void pidStop() {
+        System.out.println("Автобус прошел пид-стоп");
+
+    }
+
+    @Override
+    public int bestLoopTime() {
+        return (int) (Math.random() * 15);
+    }
+
+    @Override
+    public int maxSpeed() {
+        return (int) (Math.random() * 100);
     }
 }
