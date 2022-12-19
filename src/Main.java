@@ -40,13 +40,13 @@ public class Main {
 
     }
     public static Car generateCar(int number){
-        return new Car("марка #" + number, "модель" + number, 1.6);
+        return new Car("марка #" + number, "модель" + number, 1.6, TypeOfBody.SEDAN);
     }
     public static Bus generateBus(int number){
-        return new Bus("марка #" + number,"модель#" + number, 2.5);
+        return new Bus("марка #" + number,"модель#" + number, 2.5, Capacity.EXTRA_SMALL);
     }
     public static Truck generateTruck(int number){
-        return new Truck("марка#" + number,"модель#" + number, 1.6);
+        return new Truck("марка#" + number,"модель#" + number, 1.6, Weight.N1);
     }
 
 }
