@@ -1,36 +1,52 @@
+import animal.Animal;
+import animal.Herbivore;
+import transport.*;
+
+import java.util.Random;
+
+
 public class Main {
+    private final static Random RANDOM = new Random();
     public static void main(String[] args) {
-        Person maksim = new Person(1988,"Мaксим","Минск", "бренд-менеджером");
+        int counter = 1;
+        Car car1 = generateCar(counter++);
+        Car car2 = generateCar(counter++);
+        Car car3 = generateCar(counter++);
+        Car car4 = generateCar(counter++);
 
-        Person anya = new Person(1993, "Аня", "Москва", "методистом образовательных программ");
+        Bus bus1 = generateBus(counter++);
+        Bus bus2 = generateBus(counter++);
+        Bus bus3 = generateBus(counter++);
+        Bus bus4 = generateBus(counter++);
 
-        Person katya = new Person(1992, "Катя", "Калининград", "продакт-менеджером");
+        Truck truck1 = generateTruck(counter++);
+        Truck truck2 = generateTruck(counter++);
+        Truck truck3 = generateTruck(counter++);
+        Truck truck4 = generateTruck(counter++);
 
-        Person artem = new Person(-15 ,"", "Москва","директором по развитию бизнеса");
+        truck2.start();
+        truck2.stop();
+        DriverB maksim = new DriverB("Maks", true,6);
+        DriverC petr = new DriverC("petr", true, 10);
+        DriverD kiril = new DriverD("kiril", true, 5);
 
-        System.out.println(maksim);
-        System.out.println(anya);
-        System.out.println(katya);
-        System.out.println(artem);
+        maksim.startMove(car1);
+        maksim.stopMove(car1);
+        maksim.refill(car1);
+        maksim.printInfo(car1);
 
 
-        System.out.println();
-
-
-        Car lada = new Car("Lada","Granta",1.5, "Желтый", 2015, "Россия");
-        Car audi = new Car("Audi","A8 50 L TDI quattro",3.0, "Черный",
-                2020, "Германия");
-        Car bmw = new Car("BMW","Z8",3.0, "Черный", 2021, "Германия");
-        Car kia = new Car("Kia","Sportage",2.4, "красный", 2015,
-                "Южной Корее");
-        Car hyundai = new Car("Hyundai"," Avante",1.6, "Оранжевый", 2016,
-                "Южной Корее");
-        System.out.println(lada);
-        System.out.println(audi);
-        System.out.println(bmw);
-        System.out.println(kia);
-        System.out.println(hyundai);
 
 
     }
+    public static Car generateCar(int number){
+        return new Car("марка #" + number, "модель" + number, 1.6, TypeOfBody.SEDAN);
+    }
+    public static Bus generateBus(int number){
+        return new Bus("марка #" + number,"модель#" + number, 2.5, Capacity.EXTRA_SMALL);
+    }
+    public static Truck generateTruck(int number){
+        return new Truck("марка#" + number,"модель#" + number, 1.6, Weight.N1);
+    }
+
 }
